@@ -42,12 +42,12 @@ cp -r /tmp/repo/simple_rez/archive/packages /tmp/release/packages
 **********************
 source /tmp/release/packages/rez/1.7.9/init.sh
 
-# NOTE: the above will establish these environment variables
-#  1. REZ_RELEASE_PACKAGES_PATH : where packages will be installed
-#  2. REZ_LOCAL_PACKAGES_PATH : where local development packages will be installed  
-#  3. REZ_PATH : location of the REZ source
+# NOTE: the above will source all the Rez commands as well as setting the environment variables
+#  REZ_RELEASE_PACKAGES_PATH : where packages will be installed
+#  REZ_LOCAL_PACKAGES_PATH : where local development packages will be installed  
+#  REZ_PATH : location of the REZ source
 
-# test using rez to find yaml package, expect to return "/tmp/release/packages/yaml/3.10.0"
+# test command rez-which: find yaml package, expect to return "/tmp/release/packages/yaml/3.10.0"
 rez-which yaml 
 
 
@@ -57,6 +57,7 @@ rez-which yaml
 # You must be inside the package to release it.
 cd /tmp/repo/simple_rez/demotool
 
+# now release the package. 
 rez-release
 
 # NOTE:  As version 1.0.0 has already been tagged in Github, REZ will warn you that tag operation failed, 
@@ -66,3 +67,4 @@ rez-release
 ******************************************
 *   Resolve environment with demotool    
 ******************************************
+ 
