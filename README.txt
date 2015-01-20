@@ -1,20 +1,23 @@
-How REZ is configure to work with GIT:
+How REZ is configured to work with GIT:
 
-A REZ package a folder that contains codes and the package.yaml file.
+REZ packages are store in GIT, each package is a folder that contains codes and the package.yaml file.
 ex: https://github.com/tzhu2001/simple_rez/tree/master/demotool
 
-The package.yaml specifies the release information, the version, release comment, and tool environment variables.
-ex: https://github.com/tzhu2001/simple_rez/blob/master/demotool/package.yaml
+The package.yaml contain three type of information: 
+1) general: name, description
+2) release: version, release note
+3) runtime: environment variables and package dependencies required to run
+ex: https://github.com/tzhu2001/simple_rez/tree/master/demotool/package.yaml
 
 REZ release a package from GIT into a shared network location stored in REZ_RELEASE_PACKAGES_PATH
 1) it will deploy a new version as specifed in the package.yaml file.
 	ex: $REZ_RELEASE_PACKAGES_PATH/demotool/1.0.0
-2) it will tag the GIT state with the release version.  This will enable you do code comparison between tool versions later.
+2) it will tag the GIT state with the release version.  This will enable you do code comparison between tool versions.
 
-To be executed in Bash Shell session with git installed.
+
 
 **********************
-*     Install REZ    *
+*     Install REZ    
 **********************
 # make the git repository directory to locally checkout code 
 mkdir /tmp/repo
@@ -35,7 +38,7 @@ cd /tmp/repo/simple_rez
 cp -r /tmp/repo/simple_rez/archive/packages /tmp/release/packages
 
 **********************
-*  Start REZ session *
+*  Start REZ session 
 **********************
 source /tmp/release/packages/rez/1.7.9/init.sh
 
@@ -49,7 +52,7 @@ rez-which yaml
 
 
 ******************************
-*       Release demotool     *
+*       Release demotool     
 ******************************
 # You must be inside the package to release it.
 cd /tmp/repo/simple_rez/demotool
@@ -61,5 +64,5 @@ rez-release
 
 
 ******************************************
-*   Resolve environment with demotool    *
+*   Resolve environment with demotool    
 ******************************************
