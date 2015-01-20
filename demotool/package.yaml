@@ -13,7 +13,7 @@ package_wiki: http://some_web_link
 
 release_info: added label to the tool 
  
-description: Demo tool is made for the purpose of show casing rez build/install/release process.
+description: Demo tool is made for the purpose of show casing rez build/install/release process. 
  
 commands:
 - export PATH=$PATH:!ROOT!/bin
