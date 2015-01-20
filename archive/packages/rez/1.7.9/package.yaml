@@ -1,0 +1,23 @@
+config_version : 0
+
+version:  1.7.8
+
+name: rez
+
+uuid: 2f31e00b-279e-486c-a804-49131fa7c7bf
+
+authors:
+- tzhu
+
+package_wiki: http://some_web_link
+
+release_info: >
+ updated the location of the patch context py file.
+ 
+description: >
+ Rez installation
+ 
+commands:
+- export PYTHONPATH=!ROOT!/python:$PYTHONPATH
+- export PATH=!ROOT!/bin:$PATH
+

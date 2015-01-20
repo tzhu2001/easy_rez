@@ -1,0 +1,24 @@
+config_version : 0
+
+version:  2.0.2
+
+name: pyparsing
+
+uuid: 4ebc209f-53f6-40f2-ab68-3e5d8d8a3c6e
+
+authors:
+- tzhu
+
+package_wiki: http://some_web_link
+
+release_info: >
+ Copied from installation.
+ 
+description: >
+ Pyparsing package necessary to run REZ
+ 
+ 
+commands:
+- export PYTHONPATH=$PYTHONPATH:!ROOT!
+
+

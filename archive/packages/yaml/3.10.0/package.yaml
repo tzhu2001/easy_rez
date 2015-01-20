@@ -1,0 +1,24 @@
+config_version : 0
+
+version:  3.10.0
+
+name: yaml
+
+uuid: 5e6a4382-689d-49aa-b6f2-964158e46548
+
+authors:
+- tzhu
+
+package_wiki: http://some_web_link
+
+release_info: >
+ Copied from installation.
+ 
+description: >
+ Yaml package necessary to run REZ
+ 
+ 
+commands:
+- export PYTHONPATH=$PYTHONPATH:!ROOT!
+
+

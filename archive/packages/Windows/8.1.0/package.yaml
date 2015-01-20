@@ -1,0 +1,23 @@
+config_version : 0
+
+version:  8.1.0
+
+name: Windows
+
+uuid: 1234b068-1b7a-407f-812b-866925e99e61
+
+authors:
+- tzhu
+
+package_wiki: http://some_web_link
+
+release_info: >
+ added label to the tool 
+ 
+description: >
+ Demo tool is made for the purpose of show casing rez build/install/release process.
+
+commands:
+- export PYTHONPATH=$REZ_PATH/python/rez:$PYTHONPATH
+- export PATH=/c/windows/system32:$PATH
+

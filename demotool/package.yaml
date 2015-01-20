@@ -1,0 +1,22 @@
+config_version : 0
+
+version:  1.0.0
+
+name: demotool
+
+uuid: db69863d-afd8-4939-bda7-190e11afe700
+
+authors:
+- tzhu
+
+package_wiki: http://some_web_link
+
+release_info: added label to the tool 
+ 
+description: Demo tool is made for the purpose of show casing rez build/install/release process.
+ 
+commands:
+- export PATH=$PATH:!ROOT!/bin
+- export PYTHONPATH=$PYTHONPATH:!ROOT!/python/
+
+
