@@ -119,7 +119,7 @@ rez-config demotool yaml --print-env
 * which resolve an environment and save that to a SHOW.context file.
 *
 ******************************************
-
+(more tutorials to come on toolchain build and release)
 
 
 
