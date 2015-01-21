@@ -102,7 +102,7 @@ rez-env demotool-1.0 yaml
 rez-env -t pyparsing
 
 # you can print shell environment as resolved by REZ without sourcing it.
-rez-config  --print-env
+rez-config demotool yaml --print-env
 
 ******************************************
 * Toolchain   
