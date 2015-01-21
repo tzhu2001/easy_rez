@@ -42,7 +42,7 @@ mkdir /tmp/release
 
 # checkout the rez source from github to local folder /tmp/repo
 cd /tmp/repo
-git clone https://github.com/tzhu2001/eazy_rez.git
+git clone https://github.com/tzhu2001/easy_rez.git
 
 # easy_rez contains two subfolders "archive" and "demotool"
 cd /tmp/repo/easy_rez
