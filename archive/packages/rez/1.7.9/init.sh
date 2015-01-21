@@ -4,9 +4,8 @@
 export USER=$USERNAME
 
 # Determine the REZ install paths
-export REZ_PATH=$REZ_SOURCE_PATH
 if [ "$REZ_PATH" == "" ]; then	
-        REZ_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+        export REZ_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 	
 	# note: only works if init.sh is not symlink
         echo "REZ_SOURCE_PATH not specified, auto resolve to: '$REZ_PATH'"
@@ -23,13 +22,13 @@ if [ "$REZ_RELEASE_PACKAGES_PATH" == "" ]; then
         
         if [ -d $PKG ]; then
 		echo "REZ_RELEASE_PACKAGES_PATH auto resolve to '$PKG'.";
-		REZ_RELEASE_PACKAGES_PATH=$PKG;
+		export REZ_RELEASE_PACKAGES_PATH=$PKG;
 	fi
 fi
 
 # Determine the REZ dependent package paths, neccessary for parsing package yaml files.
-REZ_YAML_PATH=$REZ_RELEASE_PACKAGES_PATH/yaml/3.10.0
-REZ_PYPARSE_PATH=$REZ_RELEASE_PACKAGES_PATH/pyparsing/2.0.2
+export REZ_YAML_PATH=$REZ_RELEASE_PACKAGES_PATH/yaml/3.10.0
+export REZ_PYPARSE_PATH=$REZ_RELEASE_PACKAGES_PATH/pyparsing/2.0.2
 
 if [ ! -d $REZ_PATH ]; then
 	echo "ERROR! Rez could not be found at $REZ_PATH" 1>&2
@@ -70,26 +69,6 @@ else
 	if [ "$REZ_DOT_IMAGE_VIEWER" == "" ]; then
 		export REZ_DOT_IMAGE_VIEWER=/usr/bin/kde-open
 	fi
-
-
+	
 	source $REZ_PATH/bin/_complete
-
 fi
-
-
-#    Copyright 2008-2012 Dr D Studios Pty Limited (ACN 127 184 954) (Dr. D Studios)
-#
-#    This file is part of Rez.
-#
-#    Rez is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Lesser General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-#
-#    Rez is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-#
-#    You should have received a copy of the GNU Lesser General Public License
-#    along with Rez.  If not, see <http://www.gnu.org/licenses/>.
