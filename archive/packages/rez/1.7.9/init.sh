@@ -39,18 +39,10 @@ else
 		export REZ_PACKAGES_PATH=$HOME/packages:$REZ_RELEASE_PACKAGES_PATH
 	fi
 
-
-	# where rez will publish packages to (ie those released with rez-release)
-	#if [ "$REZ_RELEASE_PACKAGES_PATH" == "" ]; then
-	#	export REZ_RELEASE_PACKAGES_PATH=
-	#fi
-
-
 	# where rez will publish local packages to (ie those installed with rez-build -- -- install)
 	if [ "$REZ_LOCAL_PACKAGES_PATH" == "" ]; then
 		export REZ_LOCAL_PACKAGES_PATH=$HOME/packages
 	fi
-
 
 	# where rez-egg-install will install python egg packages to
 	if [ "$REZ_EGG_PACKAGES_PATH" == "" ]; then
@@ -64,7 +56,6 @@ else
 	if [ "$REZ_RELEASE_EDITOR" == "" ]; then
 		export REZ_RELEASE_EDITOR=/usr/bin/kwrite
 	fi
-
 
 	if [ "$REZ_DOT_IMAGE_VIEWER" == "" ]; then
 		export REZ_DOT_IMAGE_VIEWER=/usr/bin/kde-open
