@@ -51,7 +51,7 @@ cd /tmp/repo/easy_rez
 # The subfolder easy_rez/archive contains the packages necessary for REZ to function
 # The packages include yaml and pyparsing, they are pure python implementations
 # Copy all of the pacakges to release.
-cp -r /tmp/repo/easy_rez/archive/packages /tmp/release/packages
+cp -r /tmp/repo/easy_rez/archive/packages /tmp/release
 
 **********************
 *  Start REZ Session 
