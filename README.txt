@@ -125,7 +125,10 @@ rez-config demotool yaml --print-env
 
 
 ******************************************
+*
 * APPENDIX REZ in Windows require GIT Bash
+*
+******************************************
 1. Install Git Windows Client, which will also install Git Bash
    
     downloaded from http://msysgit.github.io/
