@@ -25,7 +25,8 @@ Specifically:
 
    
 The following instructions will demonstrate the REZ release process using GIT as repository.
-It has been tested on Fedora Linux 
+It has been tested on Fedora Linux and Windows 8.
+NOTE: for Windows 8 please see appendix to install GIT with Bash.
 
 **************************
 *   Installing REZ    
@@ -79,7 +80,7 @@ cd /tmp/repo/easy_rez/demotool
 rez-release
 
 # NOTE:  As version 1.0.0 has already been tagged in Github, REZ will warn you that the tag operation has failed, 
-#        This can be safely ignored as this is only a test.
+#        and that the release has been interrupted.  This can be safely ignored as tool has been released.
 
 
 ******************************************
@@ -118,3 +119,20 @@ rez-config demotool yaml --print-env
 * which resolve an environment and save that to a SHOW.context file.
 *
 ******************************************
+
+
+
+
+
+******************************************
+* APPENDIX REZ in Windows require GIT Bash
+1. Install Git Windows Client, which will also install Git Bash
+   
+    downloaded from http://msysgit.github.io/
+  
+2. Hookup Git Bash to python
+
+In bash session, make a soft link to your python install.  
+Test your link by starting python shell via "python".
+
+       ln -s /c/Python27/python.exe /usr/bin/python
