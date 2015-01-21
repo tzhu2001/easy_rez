@@ -2,6 +2,7 @@ Easy REZ is a branch of REZ with the following modifications
 1) Cross platform enabled, tested in Linux and Windows 
 2) no CMAKE required to release packages 
 3) Integration with GIT
+4) Updated rez-release with ability to save resolved environment into a shell file
 
 How REZ is configured to work with GIT:
 
@@ -107,12 +108,13 @@ rez-config demotool yaml --print-env
 ******************************************
 * Toolchain   
 *
-* In production you usually wouldn't dynamically resolve environment.
-* Rather, you would resolve all the tools required and save the resulting environment in a shell script.
-* This shell script can then be used enter a environment for a SHOW.
-* Such is the concept of the Toolchain, which is a empty package with only the package.yaml file.
+* In production user usually wouldn't dynamically resolve environment.
+* Rather, a master builder would resolve all the tools required and save the resulting environment in a shell script.
+* This shell script can then be used by others to enter an environment for a SHOW.
+* Such is the concept of a Toolchain, which is a empty package with only the package.yaml file.
+* There may be a different toolchain for each show, with different tools and tool version requirements.
 *
-* Easy REZ has modified rez-release to handle packages specially prefixed with "toolchain_"
-* to ask REZ to resolve an environment and save that to a SHOW.context file.
+* The command "rez-release" handles packages specially prefixed with "toolchain_",
+* which resolve an environment and save that to a SHOW.context file.
 *
 ******************************************
