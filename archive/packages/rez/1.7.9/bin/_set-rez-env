@@ -18,8 +18,6 @@ PYPATH=$REZ_PATH/python/rez
 PYPATH=$PYPATH:$REZ_YAML_PATH
 PYPATH=$PYPATH:$REZ_PYPARSE_PATH
 
-echo "..........path path append" $PYPATH
-
 export PYTHONPATH=$PYPATH
 export CMAKE_MODULE_PATH=$REZ_PATH/cmake
 
