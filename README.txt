@@ -74,6 +74,7 @@ rez-which yaml
 cd /tmp/repo/easy_rez/demotool
 
 # now release the package. 
+# since REZ will attempt to tag the GIT state, it may prompt you for user/password (see above for user/pw)
 rez-release
 
 # NOTE:  As version 1.0.0 has already been tagged in Github, REZ will warn you that the tag operation has failed, 
