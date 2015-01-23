@@ -24,8 +24,11 @@ Specifically:
    This will enable code comparison between package versions.
 
    
-The following instructions will demonstrate the REZ release process using GIT as repository.
+The following tutorial will demonstrate the EASY REZ release process using GIT as repository.
+It's production ready, just check this into your own GIT repository and you're set to go.
+
 It has been tested on Fedora Linux and Windows 8.
+
 NOTE: for Windows 8 please see appendix to install GIT with Bash.
 
 **************************
