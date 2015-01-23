@@ -1,8 +1,8 @@
 Easy REZ is a branch of REZ with the following modifications
 1) Cross platform enabled, tested in Linux and Windows 
-2) no CMAKE required to release packages 
-3) Integration with GIT
-4) Updated rez-release with ability to save resolved environment into a shell file
+2) Integration with GIT
+3) Release command with ability to save resolved environment into a shell file (toolchain)
+4) no CMAKE required to release packages 
 
 How REZ is configured to work with GIT:
 
