@@ -112,11 +112,12 @@ rez-config demotool yaml --print-env
 ******************************************
 * Toolchain   
 *
-* In production user doesn't dynamically resolve environment.
-* Rather, a master builder would resolve all the tools required and save the resulting environment in a shell script.
-* This shell script can then be used by others to enter an environment for a SHOW.
+* In production, users don't dynamically resolve environment.
+* Rather, a master builder would resolve all the tools required and save the resolved environment in a shell script.
+* This shell script can then be sourced by all users to enter a SHOW environment
+* Each show can have it's own environment with unique set of tools and tool versions.
 * Such is the concept of a Toolchain, which is a package with only the package.yaml file.
-* There may be a different toolchain for each show, with different tools and tool version requirements.
+* The package file list the tool names and can restrict tool version.
 *
 * The command "rez-release" handles packages specially prefixed with "toolchain_",
 * which resolve an environment and save that to a SHOW.context file.
