@@ -2,7 +2,7 @@
 # append to the python path
 import sys, os, shutil, logging  
 
-rez_python = os.environ.get('REZ_SOURCE_PATH') + '/python'
+rez_python = os.environ.get('REZ_PATH') + '/python'
 
 if not os.path.exists(rez_python):
    raise IOError, "Rez python path not found in '%s'" %  rez_python 

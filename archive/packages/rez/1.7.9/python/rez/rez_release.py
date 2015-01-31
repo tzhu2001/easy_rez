@@ -174,6 +174,7 @@ def release_from_path(path, commit_message, njobs, build_time, allow_not_latest)
         
     # tag and release:
     if not FORCE_RELEASE=="true":
+
         print "\n* Package has been verified ready for release: "
         success = git_util.tag_and_push( metadata.name, metadata.version, metadata.description )
         if not success:
@@ -282,8 +283,7 @@ def install_pkg( pkg_root, local_install=True ):
         f.close()
         
         build_list.append( 'bash ' + run_path )
-        
-        
+
         #cmd = 'python "%s/rez-config_.py" %s --print-env > "%s"' %  (  rez_bin_root,
          #                                                                ' '.join(pkg_list), 
          #                                                                context_path)
@@ -294,8 +294,9 @@ def install_pkg( pkg_root, local_install=True ):
         #if not os.path.isfile(context_path) or open(context_path).read().strip()=="":
         #    raise IOError, "Did not successfully build toolchain path: %s" % context_path 
     
-    link( pkg_ver_root, pkg_current, force=True)
-    LOG.info("Linking '%s' -> '%s'" % (pkg_current, pkg_ver_root) )
+    
+	#link( pkg_ver_root, pkg_current, force=True)
+    #LOG.info("Linking '%s' -> '%s'" % (pkg_current, pkg_ver_root) )
     
     if build_list:
         print "\n================ IMPORTANT =================="

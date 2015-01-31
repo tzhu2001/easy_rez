@@ -8,7 +8,7 @@ if [ "$REZ_PATH" == "" ]; then
         export REZ_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 	
 	# note: only works if init.sh is not symlink
-        echo "REZ_SOURCE_PATH not specified, auto resolve to: '$REZ_PATH'"
+        echo "REZ_PATH not specified, auto resolve to: '$REZ_PATH'"
 fi
 
 # Determine the REZ package paths

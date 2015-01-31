@@ -201,10 +201,15 @@ class Resolver():
 		extra options for convenience.
 		@return None on failure, same as resolve() otherwise.
 		"""
+		import logging
+		l = logging.getLogger('test')
+		
 		try:
 			pkg_reqs = [str_to_pkg_req(x, self.rctxt.memcache) for x in pkg_req_strs]
+			
 			result = self.resolve(pkg_reqs, no_os, no_path_append, is_wrapper, \
 				meta_vars, shallow_meta_vars)
+			
 
 		except PkgSystemError, e:
 			sys.stderr.write(str(e)+'\n')

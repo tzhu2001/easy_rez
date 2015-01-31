@@ -90,14 +90,15 @@ class Version:
 
 		if (tok[0] == '0') and (tok != '0'):  # zero-padding is not allowed, eg '03'
 			raise VersionError(version_str)
-
+		
 		try:
 			i = int(tok)
 			if i < 0:
 				raise VersionError("Can't have negative components: "+version_str)
 			self.ge.append(i)
 		except ValueError:
-			if self.is_tok_single_letter(tok):
+			# TZ addition: tok=='dev'
+			if self.is_tok_single_letter(tok) or tok=='dev':
 				self.ge.append(tok)
 			else:
 				raise VersionError("Invalid version '%s'" % version_str)
@@ -135,6 +136,10 @@ class Version:
 		"""
 		if type(comp) == type(1):
 			return comp + 1
+		
+		elif comp=='dev':
+			return 'dev' 
+		
 		else:
 			return chr(ord(comp) + 1)
 
