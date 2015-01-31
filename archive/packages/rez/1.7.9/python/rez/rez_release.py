@@ -12,6 +12,8 @@ import subprocess
 from rez_metafile import *
 import versions
 import config
+import playform
+import random, re
 
 SEND_RELEASE_MAIL = os.environ.get("SEND_RELEASE_MAIL", "true") # set to false to only email developer
 FORCE_RELEASE     = os.environ.get("FORCE_RELEASE", "false") # no need to tag, overwrite the existing release packages.
@@ -187,19 +189,6 @@ def release_from_path(path, commit_message, njobs, build_time, allow_not_latest)
 
 
 def link(target, link, force=False):
-
-    import os, sys, subprocess, random, re
-#     
-#     try:
-#         target, link = sys.argv[1], sys.argv[2] 
-#     except:
-#         raise IOError, "Expected command: rez-link <target> <link> <force use -f> \n Ex: rez-link c:\\target c:\\link \n or rez-link /c/target /c/link"
-#     
-#     if len(sys.argv) >= 4 and sys.argv[3] == '-f':
-#         force = True
-#     else:
-#         force = False
-    
     if link.startswith('/'):
         link = re.sub('/([a-z|A-Z])/', '\g<1>:/', link)
         
@@ -208,18 +197,48 @@ def link(target, link, force=False):
         
     if not os.path.exists(target):
         raise IOError, 'Target does not exist: "%s"' % target
-    
+
+
     if os.path.exists(link):
         if force:
-            os.rmdir(link)
+            if platform.system()=='Windows':
+                os.rmdir(link)
+            else:
+                os.remove(link)
         else:
             raise IOError, 'Link already exist: "%s"' % link    
         
+    if platform.system()=='Windows':
+        cmd = r'cmd /c "mklink /J ^"%s^" ^"%s^""' % (link, target)
+        print 'executing: ', cmd
+        os.system(cmd)        
+    else: 
+        os.link( target, link )
+        
+
+def setup_dev_package( dest_root ):
+    '''
+    install a link pointing to the repository as <package_name>-dev 
+    '''
+    # find the package.yaml
+    pkg_path = os.getcwd() + '/package.yaml'
     
-    cmd = r'cmd /c "mklink /J ^"%s^" ^"%s^""' % (link, target) 
+    if not os.path.isfile(pkg_path):
+        raise IOError, "You need tobe inside a rez-package for installation.  Package.yaml not found: '%s'..." % pkg_path
+
+    if not os.path.exists( dest_root):
+        LOG.info( "Making directory for install link: '%s'." % dest_root)
+        os.makedirs( dest_root )
+
+    pkg_dev_link = dest_root + '/dev'
     
-    print 'executing: ', cmd
-    os.system(cmd)
+    if os.path.exists(pkg_dev_link):
+        print "Dev package already setup."
+    
+    link( pkg_path, pkg_dev_link, force=True)
+    
+    LOG.info("Setup dev package by linking '%s' -> '%s'" % (pkg_dev_link, pkg_path) )
+        
 
     
 def install_pkg( pkg_root, local_install=True ): 
