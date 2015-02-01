@@ -1,6 +1,6 @@
 config_version : 0
 
-version:  1.7.8
+version:  1.7.9
 
 name: rez
 
@@ -12,7 +12,7 @@ authors:
 package_wiki: http://some_web_link
 
 release_info: >
- updated the location of the patch context py file.
+ updated with ability to source dev 
  
 description: >
  Rez installation

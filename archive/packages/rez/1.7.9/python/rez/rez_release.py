@@ -12,7 +12,7 @@ import subprocess
 from rez_metafile import *
 import versions
 import config
-import playform
+import platform
 import random, re
 
 SEND_RELEASE_MAIL = os.environ.get("SEND_RELEASE_MAIL", "true") # set to false to only email developer
@@ -219,25 +219,29 @@ def link(target, link, force=False):
 def setup_dev_package( dest_root ):
     '''
     install a link pointing to the repository as <package_name>-dev 
+    dest_root is most likely the local packages path
     '''
     # find the package.yaml
-    pkg_path = os.getcwd() + '/package.yaml'
+    pkg_root = os.getcwd()
+    pkg_path = pkg_root + '/package.yaml'
+    pkg_name = os.path.basename(pkg_root)
     
     if not os.path.isfile(pkg_path):
         raise IOError, "You need tobe inside a rez-package for installation.  Package.yaml not found: '%s'..." % pkg_path
 
-    if not os.path.exists( dest_root):
-        LOG.info( "Making directory for install link: '%s'." % dest_root)
-        os.makedirs( dest_root )
+    pkg_dev_root = '%(dest_root)s/%(pkg_name)s' % vars() 
+    pkg_dev_link = '%(dest_root)s/%(pkg_name)s/dev' % vars() 
 
-    pkg_dev_link = dest_root + '/dev'
+    if not os.path.exists( pkg_dev_root):
+        LOG.info( "Making directory for install link: '%s'." % pkg_dev_root)
+        os.makedirs( pkg_dev_root )
+        
+    link( pkg_root, pkg_dev_link, force=True)
     
     if os.path.exists(pkg_dev_link):
-        print "Dev package already setup."
-    
-    link( pkg_path, pkg_dev_link, force=True)
-    
-    LOG.info("Setup dev package by linking '%s' -> '%s'" % (pkg_dev_link, pkg_path) )
+        LOG.info("Dev setup complete.")
+    else:
+        LOG.error("Failed to link '%s' -> '%s'" % (pkg_dev_link, pkg_root) )
         
 
     
