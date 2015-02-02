@@ -9,7 +9,7 @@ if not os.path.exists(rez_python):
 sys.path.append( rez_python )
 
 import yaml
-from rez.rez_release import link_pkg_dev
+from rez.rez_release import setup_dev_package
 
 logging.getLogger().setLevel(10)
 
