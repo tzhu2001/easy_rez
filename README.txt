@@ -4,6 +4,9 @@ Easy REZ is a branch of REZ with the following modifications
 3) no CMAKE required to release packages 
 4) Release command with ability to save resolved environment into a shell file (toolchain)
 
+The following content have 2 aims.
+1) Quick startup guide on REZ, with focus on getting it up and running
+2) Provide base packages for you to start assembling your own pipeline with REZ.
 
 How REZ is configured to work with GIT:
 
