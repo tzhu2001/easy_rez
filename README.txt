@@ -1,4 +1,4 @@
-Easy REZ is a branch of REZ with the following modifications
+REZ Easy is a branch of REZ with the following modifications
 1) Cross platform enabled, tested in Linux and Windows 
 2) Integration with GIT
 3) no CMAKE required to release packages 
