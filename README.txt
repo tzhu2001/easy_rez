@@ -148,3 +148,6 @@ In bash session, make a soft link to your python install.
 Test your link by starting python shell via "python".
 
        ln -s /c/Python27/python.exe /usr/bin/python
+       
+3. Remember the GIT credentials, execute command below before doing next git pull/push command.
+git config --global credential.helper wincred
