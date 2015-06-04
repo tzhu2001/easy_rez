@@ -153,3 +153,7 @@ Test your link by starting python shell via "python".
    more info: https://help.github.com/articles/caching-your-github-password-in-git/
 
        git config --global credential.helper wincred
+       
+4. To develope REZ, you can set the rez environment to use local.
+
+       export REZ_PATH="/path/to/rez" # where /bin/rez-env  is at /path/to/rez/bin/rez-env
